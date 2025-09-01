@@ -1,0 +1,32 @@
+
+h1 {
+    background-color: rgb(8, 160, 8);
+    margin-bottom: 0;
+    padding: 40px;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: grey;
+    padding: 10px;
+}
+nav a {
+    text-decoration: none;
+}
+main {
+    display: grid;
+    grid-template-columns: auto 300px;
+}
+.main {
+    background-color: lightcoral;
+    padding: 120px;
+}
+.aside {
+    margin: 10px;
+}
+footer {
+    padding: 40px;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+}
