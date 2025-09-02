@@ -59,6 +59,12 @@ main {
     grid-template-columns: 1fr 400px;
     gap: 30px;
 }
+.intro-row {
+    grid-column: 1 / -1; /* spans full width of grid */
+    height: 20px;
+    margin-bottom: 20px;
+}
+
 
 h1, h2 {
     font-family: 'Playfair Display', serif;
