@@ -33,6 +33,10 @@ nav {
     flex-wrap: wrap;
     gap: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+nav:hover {
+    background-color: #f7af6d;
 }
 
 nav a {
@@ -64,7 +68,7 @@ main {
 }
 
 .intro-row {
-    grid-column: 1 / -1;
+    grid-column: 1 /-1;
     margin-bottom: 5px;
 }
 
@@ -89,6 +93,7 @@ h2 {
     border-radius: 1rem;
     margin: 0;
     font-size: 1.5rem;
+    text-shadow: 2px 2px 2px rgb(94, 94, 36);
 }
 
 .card {
@@ -102,6 +107,7 @@ h2 {
 
 .card:hover {
     transform: translateY(-5px);
+    background-color: #f1f891;
 }
 
 .card-content {
@@ -196,28 +202,3 @@ footer p {
     margin: 5px 0;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    main {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .row1,
-    .row2 {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        text-align: center;
-    }
-    
-    nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .resources li {
-        width: auto;
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
