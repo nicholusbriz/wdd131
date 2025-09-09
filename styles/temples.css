@@ -1,0 +1,136 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #462e2e;
+    position: relative;
+}
+
+main { 
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+p {
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    padding: 5px 0;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(245, 187, 187);
+    padding: 0;
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+nav.show {
+    max-height: 500px;
+    padding: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 1.2rem;
+    background-color: rgb(231, 214, 214);
+    margin: 5px 20px;
+    text-align: center;
+}
+
+nav a:hover {
+    background-color: rgb(247, 114, 114);
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+figure:hover {
+    transform: scale(1.02);
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+footer {
+    display: block;
+    padding: 15px;
+    background-color: #684242;
+    color: white;
+    text-align: center;
+}
+
+#menu {
+    display: none;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    background-color: #eee;
+    color: #000;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#menu::before {
+    content: "≡";
+}
+
+#menu.show::before {
+    content: "X";
+}
+
+@media  screen and (max-width: 40em) {
+    #menu {
+        display: block;
+    }
+    
+    nav {
+        flex-direction: column;
+    }
+    
+    nav:not(.show) {
+        display: none;
+    }
+}

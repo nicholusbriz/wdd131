@@ -1,0 +1,13 @@
+@media only screen and (min-width: 40.063em) {
+    nav {
+        display: flex ;
+        flex-direction: row;
+        max-height: none;
+        padding: 20px;
+    }
+    
+    nav a {
+        display: inline-block;
+        margin: 0 5px;
+    }
+}
