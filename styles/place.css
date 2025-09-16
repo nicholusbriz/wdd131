@@ -80,6 +80,13 @@ h2 {
   right: 0;
   top: 0;
 }
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
 
 table {
   width: 100%;
