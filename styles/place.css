@@ -80,13 +80,6 @@ h2 {
   right: 0;
   top: 0;
 }
-.icon {
-  width: 24px;
-  height: 24px;
-  margin-left: 10px;
-  vertical-align: middle;
-}
-
 
 table {
   width: 100%;
@@ -113,7 +106,7 @@ footer {
   font-size: 0.9rem;
 }
 
-
+/* Wide view: image as background */
 @media screen and (min-width: 768px) {
   .hero-section {
     height: 100vh;
