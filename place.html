@@ -15,7 +15,7 @@
 </head>
 <body>
   <header>
-    <h1>Uganda - The Pearl of Africa</h1>
+    <h1>Uganda</h1>
   </header>
 
   <main>
@@ -24,39 +24,40 @@
         <source media="(min-width: 768px)" srcset="images/uganda-large.webp" />
         <img src="images/uganda-small.webp" alt="Uganda landscape" />
       </picture>
-
       <div class="overlay">
         <div class="info">
-          <div class="card data">
-            <h2>Country Data</h2>
+          <section class="card data">
+            <h2>Data</h2>
             <table>
               <tr><td>Area:</td><td>241,038 km²</td></tr>
-              <tr><td>Population:</td><td>45.85 million</td></tr>
+              <tr><td>Population:</td><td>45,850,000</td></tr>
               <tr><td>Capital:</td><td>Kampala</td></tr>
               <tr><td>Languages:</td><td>English, Swahili, Luganda</td></tr>
               <tr><td>Currency:</td><td>UGX</td></tr>
-              <tr><td>Timezone:</td><td>UTC+3</td></tr>
+              <tr><td>Time Zone:</td><td>UTC+3</td></tr>
               <tr><td>Calling Code:</td><td>+256</td></tr>
               <tr><td>Internet TLD:</td><td>.ug</td></tr>
             </table>
-          </div>
-
-          <div class="card weather">
-            <h2>Weather <img src="images/icon.svg" alt="Weather icon" class="icon" /></h2>
+          </section>
+          <section class="card weather">
+            <h2>Weather <span class="weather-icon"></span></h2>
+            <div class="weather-svg">
+              <img src="images/icon.svg" alt="Weather icon" class="icon" />
+            </div>
             <table>
               <tr><td>Temperature:</td><td><span id="temperature">22</span>°C / <span id="tempF">72</span>°F</td></tr>
               <tr><td>Conditions:</td><td>Partly Cloudy</td></tr>
               <tr><td>Wind:</td><td><span id="windSpeed">5</span> km/h</td></tr>
               <tr><td>Wind Chill:</td><td id="windChill">N/A</td></tr>
             </table>
-          </div>
+          </section>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; <span id="year"></span> Uganda Travel | Location: Kampala | Last Modified: <span id="lastModified"></span></p>
+    <p>&copy; <span id="year"></span> Nicholus Turyamureba | Uganda | Last Modified: <span id="lastModified"></span></p>
   </footer>
 </body>
 </html>

@@ -72,13 +72,10 @@ h2 {
   position: relative;
 }
 
-/* ::after pseudo-element for weather icon */
+
+/* Show weather icon as pseudo-element only in large view */
 .weather h2::after {
-  content: "⛅";
-  font-size: 1.5rem;
-  position: absolute;
-  right: 0;
-  top: 0;
+  display: none;
 }
 
 .icon {
@@ -115,6 +112,18 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+  /* Show weather icon as pseudo-element in large view */
+  .weather h2::after {
+    content: "⛅";
+    font-size: 1.5rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.2rem;
+    display: inline;
+  }
+  .weather-svg {
+    display: none;
+  }
   .hero-section {
     height: 100vh;
     max-height: 800px;

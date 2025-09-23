@@ -1,0 +1,18 @@
+
+
+img {
+    width: 400px;
+    height: 600px;
+    display: block;
+    margin: 10px;
+    animation: fadeIn 10s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1;
+    }
+}

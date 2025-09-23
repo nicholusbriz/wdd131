@@ -1,0 +1,157 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+}
+button {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  background-color: #004080;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: block;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #003366;
+  color: #ffcc00;
+  border-color: #ffcc00;
+  text-decoration: none;
+}
+
+#button::before {
+  content: "☰ Menu";
+  font-weight: bold;
+  color: white;
+}
+#button.open::before {
+  content: "✖ Close";
+  font-weight: bold;
+  color: yellow;
+}
+
+#templeContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+#templeContainer >div {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+#templeContainer > div:hover {
+  transform: scale(1.02);
+}
+
+.temple-image {
+  width: 100%;
+  display: block;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  animation: fadeIn 5s ease-in;
+}
+
+#templeContainer h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  text-align: center;
+}
+
+#templeContainer p {
+  text-align: center;
+  margin: 0.3rem 0;
+  color: #555;
+  font-size: 0.95rem;
+  padding: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+footer {
+  background-color: #004080;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    display: none;
+  }
+
+  nav.open a {
+    display: block;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+    #templeContainer {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+    }   
+
+
+}
+
+@media screen and (min-width: 600px) {
+  button {
+    display: none;
+  }
+    
+}
+
