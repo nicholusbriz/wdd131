@@ -178,7 +178,7 @@ document.getElementById("large").addEventListener("click", (e) => {
   const largeTemples = temples.filter(temple => temple.area > 90000);
   renderTemples(largeTemples);
 });
-
+                                                                                                                                                                                                                              
 document.getElementById("small").addEventListener("click", (e) => {
   e.preventDefault(); 
 
