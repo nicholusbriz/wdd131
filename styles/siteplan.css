@@ -165,6 +165,7 @@ h2 {
   display: block;
   border: 2px solid white;
   border-radius: 6px;
+  animation: fadeIn 3s ease-in;
 }
 
 /* ========== Footer ========== */
