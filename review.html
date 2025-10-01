@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewiew Page</title>
+</head>
+<body>
+    <h1>Thank You!</h1>
+    <p>Your product review has been submitted.</p>
+
+    <script>
+        let reviewCount = localStorage.getItem("reviewCount") || 0;
+        reviewCount++;
+        localStorage.setItem("reviewCount", reviewCount);
+
+        document.body.insertAdjacentHTML("beforeend", `<p>You have submitted ${reviewCount} review(s).</p>`);
+    </script>
+
+</body>
+</html>
