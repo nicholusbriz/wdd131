@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atbriz Entertainment Shop</title>
-  <meta name="description" content="Atbriz Online Entertainment Shopping Site" />
-  <meta name="keywords" content="Atbriz, Entertainment, Shop, Online Store" />
-  <meta name="author" content="Nicholus Turyamureba" />
-  <link rel="stylesheet" href="styles/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Atbriz Online Entertainment Shopping Site">
+  <meta name="keywords" content="Atbriz, Entertainment, Shop, Online Store">
+  <meta name="author" content="Nicholus Turyamureba">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="script/script.js" defer></script>
 </head>
 <body>
   <header>
     <div class="header">
       <picture class="logo-container">
-        <img src="images/atbriz-logo.webp" alt="Atbriz Logo" class="logo" loading="lazy" />
+        <img src="images/atbriz-logo.webp" alt="Atbriz Logo" class="logo" loading="lazy">
       </picture>
       <h1>Atbriz entertainment shop</h1>
     </div>
@@ -30,8 +31,23 @@
   </header>
 
   <main>
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Your Shopping Cart</h2>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+          <h3>Total: $<span id="cart-total-price">0</span></h3>
+          <button id="checkout-btn">Checkout</button>
+          <button id="clear-cart-btn">Clear Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast"></div>
+
     <section class="hero">
-      <img src="images/Free-Isometric-iPhone-14-Pro-Max-Grid-Mockup.webp" alt="hero image" class="hero-image" loading="lazy" />
+      <img src="images/Free-Isometric-iPhone-14-Pro-Max-Grid-Mockup.webp" alt="hero image" class="hero-image" loading="lazy">
       <div class="hero-info">
         <h2>Welcome to Atbriz Entertainment Shop</h2>
         <p>Your one-stop shop for all your entertainment needs. Explore our wide range of products, from the latest gadgets to classic favorites.</p>
@@ -45,14 +61,10 @@
     </section>
 
     <h4 class="featured">FEATURED BRANDS</h4>
-    <div id="featured-brands">
-      <!-- Brands will be loaded by JavaScript -->
-    </div>
+    <div id="featured-brands"></div>
 
     <h4 class="featured">POPULAR PHONES</h4>
-    <div id="popular-phones">
-      <!-- Phones will be loaded by JavaScript -->
-    </div>
+    <div id="popular-phones"></div>
     
     <div class="references-link">
       <a href="references.html">View References</a>
@@ -60,10 +72,8 @@
   </main>
 
   <footer>
-    <p>&copy; 2024 Atbriz Entertainment Shop. All rights reserved.</p>
-    <p><a href="references.html">References</a></p>
+    <p>&copy; <span id="year"></span> Atbriz Entertainment Shop. Created by Turyamureba Nicholus</p>
+    <p><span id="lastModified"></span></p>
   </footer>
-
-  <script src="script/script.js"></script>
 </body>
 </html>

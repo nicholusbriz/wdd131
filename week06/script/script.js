@@ -1,4 +1,18 @@
-// ===== MOBILE MENU TOGGLE =====
+// Footer dynamic content
+const currentYear = document.getElementById('year');
+const lastModified = document.getElementById('lastModified');
+
+if (currentYear) {
+    const year = new Date().getFullYear();
+    currentYear.textContent = year;
+}
+
+if (lastModified) {
+    const lastMod = new Date(document.lastModified);
+    lastModified.textContent = `Last Updated: ${lastMod.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`;
+}
+
+// Mobile menu toggle
 const menuButton = document.getElementById('menu-icon');
 const nav = document.querySelector('nav');
 
@@ -9,7 +23,7 @@ if (menuButton && nav) {
     });
 }
 
-// ===== PHONE DATA =====
+// Phone data
 const phones = [
     {
         id: 1,
@@ -74,42 +88,10 @@ const phones = [
         rating: 4.2,
         reviews: 156,
         discount: 13
-    },
-    {
-        id: 5,
-        brand: "itel",
-        name: "Itel S23+",
-        price: 149,
-        originalPrice: 179,
-        image: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=300&fit=crop",
-        storage: 128,
-        ram: 4,
-        camera: "50MP AI Triple Camera",
-        display: "6.6-inch HD+ Display",
-        battery: "5000 mAh",
-        rating: 4.0,
-        reviews: 203,
-        discount: 17
-    },
-    {
-        id: 6,
-        brand: "apple",
-        name: "iPhone 14",
-        price: 799,
-        originalPrice: 829,
-        image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=300&fit=crop",
-        storage: 128,
-        ram: 6,
-        camera: "12MP Dual Camera System",
-        display: "6.1-inch Super Retina XDR",
-        battery: "3279 mAh",
-        rating: 4.6,
-        reviews: 428,
-        discount: 4
     }
 ];
 
-// ===== BRANDS DATA =====
+// Brands data
 const featuredBrands = [
     {
         id: 1,
@@ -118,8 +100,6 @@ const featuredBrands = [
         description: "Premium smartphones with cutting-edge technology",
         productCount: 4,
         startingPrice: 429,
-        featured: true,
-        category: "premium",
         popularModels: ["iPhone 15 Pro Max", "iPhone 14", "iPhone SE", "iPhone 13 Mini"]
     },
     {
@@ -129,76 +109,35 @@ const featuredBrands = [
         description: "Innovative Android devices for every lifestyle",
         productCount: 4,
         startingPrice: 199,
-        featured: true,
-        category: "flagship",
         popularModels: ["Galaxy S24 Ultra", "Galaxy A54 5G", "Galaxy Z Flip5", "Galaxy M14 5G"]
-    },
-    {
-        id: 3,
-        name: "Tecno",
-        logo: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=200&h=200&fit=crop",
-        description: "Feature-packed smartphones at affordable prices",
-        productCount: 4,
-        startingPrice: 159,
-        featured: true,
-        category: "mid-range",
-        popularModels: ["Phantom V Fold", "Camon 20 Premier", "Pova 5 Pro", "Spark 10 Pro"]
-    },
-    {
-        id: 4,
-        name: "Infinix",
-        logo: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=200&h=200&fit=crop",
-        description: "Budget-friendly phones with impressive features",
-        productCount: 4,
-        startingPrice: 89,
-        featured: true,
-        category: "budget",
-        popularModels: ["Zero 30 5G", "Note 30 Pro", "Hot 30i", "Smart 8"]
-    },
-    {
-        id: 5,
-        name: "Itel",
-        logo: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=200&h=200&fit=crop",
-        description: "Ultra-affordable devices for everyday use",
-        productCount: 4,
-        startingPrice: 79,
-        featured: true,
-        category: "entry-level",
-        popularModels: ["S23+", "Vision 5 Plus", "A70", "S24"]
     }
 ];
 
-// ===== CART SYSTEM =====
+// Cart system
 let cart = JSON.parse(localStorage.getItem('atbriz-cart')) || [];
 
-// ===== INITIALIZE APPLICATION =====
+// Initialize application
 function init() {
     updateCartCount();
     
-    // Load featured brands on homepage
     if (document.getElementById('featured-brands')) {
         displayFeaturedBrands();
     }
     
-    // Load popular phones on homepage
     if (document.getElementById('popular-phones')) {
         displayPopularPhones();
     }
     
-    // Load all phones on products page
     if (document.getElementById('products-grid')) {
         displayAllPhones();
         setupFilters();
     }
     
-    // Setup cart functionality
     setupCart();
-    
-    // Setup contact form
     setupContactForm();
 }
 
-// ===== DISPLAY FEATURED BRANDS =====
+// Display featured brands
 function displayFeaturedBrands() {
     const container = document.getElementById('featured-brands');
     if (!container) return;
@@ -225,13 +164,12 @@ function displayFeaturedBrands() {
     `).join('');
 }
 
-// ===== DISPLAY POPULAR PHONES =====
+// Display popular phones
 function displayPopularPhones() {
     const container = document.getElementById('popular-phones');
     if (!container) return;
     
-    // Show first 4 phones as popular
-    const popularPhones = phones.slice(0, 4);
+    const popularPhones = phones.slice(0, 2);
     
     container.innerHTML = popularPhones.map(phone => `
         <div class="phone-card">
@@ -251,7 +189,7 @@ function displayPopularPhones() {
     `).join('');
 }
 
-// ===== DISPLAY ALL PHONES =====
+// Display all phones
 function displayAllPhones(filteredPhones = phones) {
     const container = document.getElementById('products-grid');
     if (!container) return;
@@ -264,19 +202,13 @@ function displayAllPhones(filteredPhones = phones) {
     container.innerHTML = filteredPhones.map(phone => `
         <div class="phone-card">
             <img src="${phone.image}" alt="${phone.name}" loading="lazy">
-            ${phone.discount > 0 ? `<div class="discount-badge">${phone.discount}% OFF</div>` : ''}
             <h3>${phone.name}</h3>
-            <div class="phone-price">
-                $${phone.price}
-                ${phone.originalPrice > phone.price ? 
-                    `<span class="original-price">$${phone.originalPrice}</span>` : ''}
-            </div>
+            <div class="phone-price">$${phone.price}</div>
             <div class="phone-specs">
                 <div><strong>Brand:</strong> ${phone.brand}</div>
                 <div><strong>Storage:</strong> ${phone.storage}GB</div>
                 <div><strong>RAM:</strong> ${phone.ram}GB</div>
                 <div><strong>Display:</strong> ${phone.display}</div>
-                <div><strong>Rating:</strong> ${phone.rating} ⭐ (${phone.reviews} reviews)</div>
             </div>
             <div class="phone-actions">
                 <button class="btn-primary" onclick="addPhoneToCart(${phone.id})">Add to Cart</button>
@@ -286,21 +218,15 @@ function displayAllPhones(filteredPhones = phones) {
     `).join('');
 }
 
-// ===== FILTER FUNCTIONS =====
+// Filter functions
 function setupFilters() {
     const brandFilter = document.getElementById('brand-filter');
     const priceFilter = document.getElementById('price-filter');
     const searchFilter = document.getElementById('search-filter');
     
-    if (brandFilter) {
-        brandFilter.addEventListener('change', filterPhones);
-    }
-    if (priceFilter) {
-        priceFilter.addEventListener('change', filterPhones);
-    }
-    if (searchFilter) {
-        searchFilter.addEventListener('input', filterPhones);
-    }
+    if (brandFilter) brandFilter.addEventListener('change', filterPhones);
+    if (priceFilter) priceFilter.addEventListener('change', filterPhones);
+    if (searchFilter) searchFilter.addEventListener('input', filterPhones);
 }
 
 function filterPhones() {
@@ -309,12 +235,10 @@ function filterPhones() {
     const searchValue = document.getElementById('search-filter').value.toLowerCase();
     
     let filtered = phones.filter(phone => {
-        // Brand filter
         if (brandValue !== 'all' && phone.brand !== brandValue) {
             return false;
         }
         
-        // Price filter
         if (priceValue !== 'all') {
             if (priceValue === '0-100' && phone.price > 100) return false;
             if (priceValue === '100-300' && (phone.price < 100 || phone.price > 300)) return false;
@@ -323,7 +247,6 @@ function filterPhones() {
             if (priceValue === '1000+' && phone.price < 1000) return false;
         }
         
-        // Search filter
         if (searchValue && !phone.name.toLowerCase().includes(searchValue) && 
             !phone.brand.toLowerCase().includes(searchValue)) {
             return false;
@@ -335,7 +258,7 @@ function filterPhones() {
     displayAllPhones(filtered);
 }
 
-// ===== CART FUNCTIONS =====
+// Cart functions
 function setupCart() {
     const cartLink = document.getElementById('cart-link');
     const cartModal = document.getElementById('cart-modal');
@@ -350,19 +273,10 @@ function setupCart() {
         });
     }
     
-    if (closeModal) {
-        closeModal.addEventListener('click', closeCartModal);
-    }
+    if (closeModal) closeModal.addEventListener('click', closeCartModal);
+    if (checkoutBtn) checkoutBtn.addEventListener('click', checkout);
+    if (clearCartBtn) clearCartBtn.addEventListener('click', clearCart);
     
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', checkout);
-    }
-    
-    if (clearCartBtn) {
-        clearCartBtn.addEventListener('click', clearCart);
-    }
-    
-    // Close modal when clicking outside
     window.addEventListener('click', (e) => {
         if (e.target === document.getElementById('cart-modal')) {
             closeCartModal();
@@ -374,13 +288,6 @@ function addBrandToCart(brandId) {
     const brand = featuredBrands.find(b => b.id === brandId);
     if (brand) {
         showToast(`Viewing ${brand.name} products!`);
-        // In a real app, this would filter products by brand
-        if (window.location.pathname.includes('products.html')) {
-            document.getElementById('brand-filter').value = brand.name.toLowerCase();
-            filterPhones();
-        } else {
-            window.location.href = 'products.html';
-        }
     }
 }
 
@@ -397,8 +304,6 @@ function addPhoneToCart(phoneId) {
             id: phone.id,
             name: phone.name,
             price: phone.price,
-            image: phone.image,
-            brand: phone.brand,
             quantity: 1
         });
     }
@@ -413,7 +318,6 @@ function removeFromCart(phoneId) {
     saveCart();
     updateCartCount();
     updateCartDisplay();
-    showToast('Item removed from cart');
 }
 
 function updateQuantity(phoneId, change) {
@@ -486,7 +390,6 @@ function clearCart() {
     saveCart();
     updateCartCount();
     updateCartDisplay();
-    showToast('Cart cleared');
 }
 
 function checkout() {
@@ -510,7 +413,7 @@ function closeCartModal() {
     document.getElementById('cart-modal').style.display = 'none';
 }
 
-// ===== PHONE DETAILS =====
+// Phone details
 function viewPhoneDetails(phoneId) {
     const phone = phones.find(p => p.id === phoneId);
     if (!phone) return;
@@ -533,7 +436,6 @@ function viewPhoneDetails(phoneId) {
                         <div><strong>Display:</strong> ${phone.display}</div>
                         <div><strong>Camera:</strong> ${phone.camera}</div>
                         <div><strong>Battery:</strong> ${phone.battery}</div>
-                        <div><strong>Rating:</strong> ${phone.rating} ⭐ (${phone.reviews} reviews)</div>
                     </div>
                     <button class="btn-primary" onclick="addPhoneToCart(${phone.id}); this.parentElement.parentElement.parentElement.parentElement.remove()">
                         Add to Cart - $${phone.price}
@@ -545,14 +447,13 @@ function viewPhoneDetails(phoneId) {
     document.body.appendChild(modal);
 }
 
-// ===== CONTACT FORM =====
+// Contact form
 function setupContactForm() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
@@ -560,13 +461,8 @@ function setupContactForm() {
                 message: document.getElementById('message').value
             };
             
-            // Save to localStorage
             saveContactForm(formData);
-            
-            // Show success message
             showToast('Thank you for your message! We will get back to you soon.', 'success');
-            
-            // Reset form
             this.reset();
         });
     }
@@ -581,7 +477,7 @@ function saveContactForm(formData) {
     localStorage.setItem('atbriz-contact', JSON.stringify(contactSubmissions));
 }
 
-// ===== TOAST NOTIFICATION =====
+// Toast notification
 function showToast(message, type = 'success') {
     const toast = document.getElementById('toast');
     if (!toast) return;
@@ -600,10 +496,10 @@ function showToast(message, type = 'success') {
     }, 3000);
 }
 
-// ===== INITIALIZE WHEN DOCUMENT LOADS =====
+// Initialize when document loads
 document.addEventListener('DOMContentLoaded', init);
 
-// ===== GLOBAL FUNCTIONS =====
+// Global functions
 window.addBrandToCart = addBrandToCart;
 window.addPhoneToCart = addPhoneToCart;
 window.removeFromCart = removeFromCart;
