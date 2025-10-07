@@ -650,6 +650,10 @@ footer a:hover {
         display: flex;
     }
 
+    .hero-info{
+        position: relative;
+    }
+
     .hero-info h2 {
         font-size: 1.8rem;
     }
