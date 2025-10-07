@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - Atbriz Entertainment Shop</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="header">
+      <picture class="logo-container">
+        <img src="images/atbriz-logo.webp" alt="Atbriz Logo" class="logo" loading="lazy" />
+      </picture>
+      <h1>Atbriz entertainment shop</h1>
+    </div>
+    <div id="menu-icon"></div>
+    <nav>
+      <a href="index.html">home</a>
+      <a href="products.html">product catalog</a>
+      <a href="contact.html">contact us</a>
+      <a href="#" id="cart-link">view cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="page-title">Product Catalog</h2>
+    
+    <div class="filters">
+      <select id="brand-filter">
+        <option value="all">All Brands</option>
+        <option value="apple">Apple</option>
+        <option value="samsung">Samsung</option>
+        <option value="tecno">Tecno</option>
+        <option value="infinix">Infinix</option>
+        <option value="itel">Itel</option>
+      </select>
+      
+      <select id="price-filter">
+        <option value="all">All Prices</option>
+        <option value="0-100">Under $100</option>
+        <option value="100-300">$100 - $300</option>
+        <option value="300-600">$300 - $600</option>
+        <option value="600-1000">$600 - $1000</option>
+        <option value="1000+">Over $1000</option>
+      </select>
+      
+      <input type="text" id="search-filter" placeholder="Search phones...">
+    </div>
+
+    <div id="products-grid">
+      <!-- Products will be loaded by JavaScript -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Atbriz Entertainment Shop. All rights reserved.</p>
+    <p><a href="references.html">References</a></p>
+  </footer>
+
+  <script src="script/script.js"></script>
+</body>
+</html>
